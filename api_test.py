@@ -4,76 +4,95 @@ import json
 import sys
 import getopt
 
+sys.getdefaultencoding()
+reload(sys)
+sys.setdefaultencoding('UTF-8')
+
 api_host = 'http://localhost:8850/'
 apis = {
+		'add_single_message': {
+			'need_token': True,
+			'method': 'POST',
+			'url': 'v1/im/message/single/516',
+			'data': {
+				'mime_type': 0,
+				'content': 'haha'
+			}
+		},
+		'get_rct_contacts': {
+			'need_token': True,
+			'method': 'GET',
+			'url': 'v1/im/message/rct_contacts',
+			'data': None
+		},
         'add_group': {
             'need_token': True,
-				'method': 'POST',
+			'method': 'POST',
             'url': 'v1/im/group',
-				'data': {
-        				'name': '我们的群',
-        				'image': 'http://api.alhelp.net'
+			'data': {
+        		'name': '我们的群',
+        		'image': 'http://api.alhelp.net'
 				}
-          		},
-			'delete_group': {
-				'need_token': True,
-				'method': 'DELETE',
-				'url': 'v1/im/group/22',
-				'data': None
-			},
-			'modify_group': {
-				'need_token': True,
-				'method': 'PUT',
-				'url': 'v1/im/group/22',
-				'data': {
+       		},
+		'delete_group': {
+			'need_token': True,
+			'method': 'DELETE',
+			'url': 'v1/im/group/22',
+			'data': None
+		},
+		'modify_group': {
+			'need_token': True,
+			'method': 'PUT',
+			'url': 'v1/im/group/22',
+			'data': {
+				'name': '修改过的'
+			}
+		},
+		'add_group_member': {
+			'need_token': False,
+			'method': 'POST',
+			'url': 'v1/im/group/22/member',
+			'data': {
+				'member_ids': [130, 131] 
+			}
+		},
+		'delete_group_member': {
+			'need_token': False,
+			'method': 'DELETE',
+			'url': 'v1/im/group/22/member',
+			'data': {
+				'member_ids': [131]
+			}
+		},
+		'get_groups': {
+			'need_token': False,
+			'method': 'GET',
+			'url': 'v1/im/groups?p=1&ps=2',
+			'data': {
+				'filters': {
 					'name': '修改过的'
 				}
-			},
-			'add_group_member': {
-				'need_token': False,
-				'method': 'POST',
-				'url': 'v1/im/group/22/member',
-				'data': {
-					'member_ids': [130, 131] 
-				}
-			},
-			'delete_group_member': {
-				'need_token': False,
-				'method': 'DELETE',
-				'url': 'v1/im/group/22/member',
-				'data': {
-					'member_ids': [131]
-				}
-			},
-			'get_groups': {
-				'need_token': False,
-				'method': 'GET',
-				'url': 'v1/im/groups?p=1&ps=2',
-				'data': {
-					'filters': {
-						'name': '修改过的'
-					}
-				}	
-			},
-			'get_demand_collaborate': {
-				'need_token': True,
-				'method': 'GET',
-				'url': 'v1/demands/collaborates/4834?page=1',
-				'data': None
-			},
-			'get_follows': {
-				'need_token': True,
-				'method': 'GET',
-				'url' : 'v1/follow',
-				'data': None
-			},
-			'get_someone_talks_list': {
-				'need_token': True,
-				'method': 'GET',
-				'url': 'v1/talks/list/14257',
-				'data': None
-			}
-        	}
+			}	
+		},
+		'get_demand_collaborate': {
+			'need_token': True,
+			'method': 'GET',
+			'url': 'v1/demands/collaborates/4834?page=1',
+			'data': None
+		},
+		'get_follows': {
+			'need_token': True,
+			'method': 'GET',
+			'url' : 'v1/follow',
+			'data': None
+		},
+		'get_someone_talks_list': {
+			'need_token': True,
+			'method': 'GET',
+			'url': 'v1/talks/list/14257',
+			'data': None
+		}
+}
 
 token_url = 'http://localhost:8850/v1/tokens'
 credential = json.dumps({
