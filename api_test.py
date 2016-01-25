@@ -48,6 +48,12 @@ apis = {
 				'name': '修改过的'
 			}
 		},
+		'get_group': {
+			'need_token': True,
+			'method': 'GET',
+			'url': 'v1/im/group/16',
+			'data': None
+		},
 		'add_group_member': {
 			'need_token': False,
 			'method': 'POST',
