@@ -8,6 +8,7 @@ sys.getdefaultencoding()
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 
+#api_host = 'http://api.alhelp.net/'
 api_host = 'http://localhost:8850/'
 apis = {
 		'add_single_message': {
@@ -96,6 +97,62 @@ apis = {
 			'need_token': True,
 			'method': 'GET',
 			'url': 'v1/talks/list/14257',
+			'data': None
+		},
+		'get_master_talks': {
+			'need_token': False,
+			'method': 'GET',
+			'url': 'v1/talks/list/master/page/1',
+			'data': None
+		},
+		'get_follows_talks': {
+			'need_token': True,
+			'method': 'GET',
+			'url': 'v1/talks/list/follow',
+			'data': None
+		},
+		'get_all_talks': {
+			'need_token': True,
+			'method': 'GET',
+			'url': 'v1/talks/list/all',
+			'data': {
+				'community_id': '2'
+			}
+		},
+		'set_talk_top': {
+			'need_token': True,
+			'method': 'PUT',
+			'url': 'v1/talks/1/top',
+			'data': None
+		},
+		'unset_talk_top': {
+			'need_token': True,
+			'method': 'PUT',
+			'url': 'v1/talks/1/top_off',
+			'data': None
+		},
+		'set_talk_hot': {
+			'need_token': True,
+			'method': 'PUT',
+			'url': 'v1/talks/1/hot',
+			'data': None
+		},
+		'unset_talk_hot': {
+			'need_token': True,
+			'method': 'PUT',
+			'url': 'v1/talks/1/hot_off',
+			'data': None
+		},
+		'set_talk_ann': {
+			'need_token': True,
+			'method': 'PUT',
+			'url': 'v1/talks/1/ann',
+			'data': None
+		},
+		'unset_talk_ann': {
+			'need_token': True,
+			'method': 'PUT',
+			'url': 'v1/talks/1/ann_off',
 			'data': None
 		}
 }
