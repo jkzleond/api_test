@@ -20,6 +20,12 @@ apis = {
 				'content': 'haha'
 			}
 		},
+		'get_single_histroy': {
+			'need_token': True,
+			'method': 'GET',
+			'url': 'v1/im/message/history/single/516',
+			'data': None
+		},
 		'get_rct_contacts': {
 			'need_token': True,
 			'method': 'GET',
