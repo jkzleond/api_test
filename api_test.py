@@ -154,6 +154,47 @@ apis = {
 			'method': 'PUT',
 			'url': 'v1/talks/1/ann_off',
 			'data': None
+		},
+		'gen_order': {
+			'need_token': True,
+			'method': 'POST',
+			'url': 'v1/order',
+			'data': {
+				'address_id': '13',
+				'items': [
+					{
+						'business_id': '1167',
+						'products': [
+							{
+								'table_name': 'book',
+								'table_id': '41',
+								'quantity': 10			
+							},
+							{
+								'table_name': 'book',
+								'table_id': '42',
+								'quantity': 5			
+							}
+						],
+						'shipping_template_id': '0',
+						'shipping_price': '0.00',
+						'remark': '给卖家的留言'
+					},
+					{
+						'business_id': '8039',
+						'products': [
+							{
+								'table_name': 'book',
+								'table_id': '45',
+								'quantity': 2			
+							}
+						],
+						'shipping_template_id': '0',
+						'shipping_price': '0.00',
+						'remark': '给卖家的留言'
+					}
+				]
+			}
 		}
 }
 
