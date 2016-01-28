@@ -163,16 +163,16 @@ apis = {
 				'address_id': '13',
 				'items': [
 					{
-						'business_id': '1167',
-						'products': [
+						'business_id': '5262',
+						'goods': [
 							{
-								'table_name': 'book',
-								'table_id': '41',
+								'type': 'book',
+								'id': '321',
 								'quantity': 10			
 							},
 							{
-								'table_name': 'book',
-								'table_id': '42',
+								'type': 'book',
+								'id': '322',
 								'quantity': 5			
 							}
 						],
@@ -181,11 +181,11 @@ apis = {
 						'remark': '给卖家的留言'
 					},
 					{
-						'business_id': '8039',
-						'products': [
+						'business_id': '5131',
+						'goods': [
 							{
-								'table_name': 'book',
-								'table_id': '45',
+								'type': 'book',
+								'id': '151',
 								'quantity': 2			
 							}
 						],
@@ -194,6 +194,14 @@ apis = {
 						'remark': '给卖家的留言'
 					}
 				]
+			}
+		},
+		'pay_order': {
+			'need_token': True,
+			'url': 'v1/order/pay/remain',
+			'method': 'PUT',
+			'data': {
+				'order_ids': [570, 594]
 			}
 		}
 }
