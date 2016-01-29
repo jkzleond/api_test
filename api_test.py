@@ -20,6 +20,15 @@ apis = {
 				'content': 'haha'
 			}
 		},
+		'add_group_message': {
+			'need_token': True,
+			'method': 'POST',
+			'url': 'v1/im/message/group/29',
+			'data': {
+				'mime_type': 0,
+				'content': '一条大于十个字的消息会被哈哈'
+			}
+		},
 		'get_single_histroy': {
 			'need_token': True,
 			'method': 'GET',
@@ -39,8 +48,8 @@ apis = {
 			'data': {
         		'name': '我们的群',
         		'image': 'http://api.alhelp.net'
-				}
-       		},
+			}
+       	},
 		'delete_group': {
 			'need_token': True,
 			'method': 'DELETE',
@@ -209,6 +218,18 @@ apis = {
 			'data': {
 				'order_ids': [570, 594]
 			}
+		},
+		'get_no_read_msg': {
+			'need_token': True,
+			'url': 'v1/im/message/no_read',
+			'method': 'GET',
+			'data': None
+		},
+		'mark_read_msg': {
+			'need_token': True,
+			'url': 'v1/im/message/mark_read/single/516',
+			'method': 'PUT',
+			'data': None
 		}
 }
 
