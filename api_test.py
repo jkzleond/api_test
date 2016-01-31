@@ -29,10 +29,34 @@ apis = {
 				'content': '一条大于十个字的消息会被哈哈'
 			}
 		},
-		'get_single_histroy': {
+		'get_no_read_msg': {
+			'need_token': True,
+			'url': 'v1/im/message/no_read',
+			'method': 'GET',
+			'data': None
+		},
+		'get_no_read_msg_total': {
+			'need_token': True,
+			'url': 'v1/im/message/no_read_total',
+			'method': 'GET',
+			'data': None
+		},
+		'mark_read_msg': {
+			'need_token': True,
+			'url': 'v1/im/message/mark_read/single/516',
+			'method': 'PUT',
+			'data': None
+		},
+		'get_single_history': {
 			'need_token': True,
 			'method': 'GET',
 			'url': 'v1/im/message/history/single/516',
+			'data': None
+		},
+		'get_group_history': {
+			'need_token': True,
+			'method': 'GET',
+			'url': 'v1/im/message/history/group/29',
 			'data': None
 		},
 		'get_rct_contacts': {
@@ -87,12 +111,12 @@ apis = {
 			}
 		},
 		'get_groups': {
-			'need_token': False,
+			'need_token': True,
 			'method': 'GET',
 			'url': 'v1/im/groups?p=1&ps=2',
 			'data': {
 				'filters': {
-					'name': '修改过的'
+					'name': '我们的群'
 				}
 			}	
 		},
@@ -102,10 +126,15 @@ apis = {
 			'url': 'v1/demands/collaborates/4834?page=1',
 			'data': None
 		},
+		'get_talk_by_id': {
+			'need_token': True,
+			'method': 'GET',
+			'url': 'v1/talks/50'
+		},
 		'get_follows': {
 			'need_token': True,
 			'method': 'GET',
-			'url' : 'v1/follow',
+			'url' : 'v1/follow/15034',
 			'data': None
 		},
 		'get_someone_talks_list': {
@@ -129,7 +158,7 @@ apis = {
 		'get_all_talks': {
 			'need_token': True,
 			'method': 'GET',
-			'url': 'v1/talks/list/all',
+			'url': 'v1/talks/list',
 			'data': {
 				'community_id': '2'
 			}
@@ -218,18 +247,6 @@ apis = {
 			'data': {
 				'order_ids': [570, 594]
 			}
-		},
-		'get_no_read_msg': {
-			'need_token': True,
-			'url': 'v1/im/message/no_read',
-			'method': 'GET',
-			'data': None
-		},
-		'mark_read_msg': {
-			'need_token': True,
-			'url': 'v1/im/message/mark_read/single/516',
-			'method': 'PUT',
-			'data': None
 		}
 }
 
